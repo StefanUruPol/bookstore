@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Resultados {% endblock %}
+
+{% block cabecera %} Busqueda en el sitio {% endblock %}
+
+{% block contenido %}
+<br><br>
+
+<p>Su búsqueda arrojó los siguientes resultados:</p>
+
+{% if libros %}
+
+	<p>Libro{{libros|pluralize}}
+	encontrado{{libros|pluralize}}: {{libros|length}}
+	</p>
+	<ul id="resultado">
+		{% for a in libros %}
+		<li>
+			<p>Titulo: {{a.titulo}}</p>	
+			<p>Editorial: {{a.editorial}}</p>
+			<p>
+				Autor:
+				{% for i in a.autores.all %}
+					{{i.nombre}} {{i.apellidos}}
+				{% endfor %}
+			</p>
+			<img class="portada" src="{{a.portada.url}}">
+		</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<br><br>
+	<p>Ningún libro encontrado</p>
+
+
+{% endif %}
+
+{% endblock %}

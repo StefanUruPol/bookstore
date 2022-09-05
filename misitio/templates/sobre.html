@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}Sobre{% endblock %}
+
+{% block cabecera %}Quienes somos{% endblock %}
+
+{% block contenido %}
+<br><br>
+<p>Sitio creado con fines educativos para el curso
+de programador Python de Bios 2020</p>
+
+<img class="ima" height="980" src="{% static 'img/programador-frustrado.jpg' %}">
+
+{% endblock %}
